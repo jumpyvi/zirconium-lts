@@ -17,6 +17,7 @@ echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalt
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri-git \
     install --setopt=install_weak_deps=False \
     niri
+rm -rf /usr/share/doc/niri
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
@@ -67,6 +68,7 @@ dnf -y install \
     xdg-desktop-portal-gnome \
     xdg-desktop-portal-gtk \
     xdg-user-dirs
+rm -rf /usr/share/doc/just
 
 dnf install -y --setopt=install_weak_deps=False \
     kf6-kirigami \
