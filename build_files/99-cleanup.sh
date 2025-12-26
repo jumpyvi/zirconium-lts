@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -xeuo pipefail
+
 # See https://github.com/CentOS/centos-bootc/issues/191
 mkdir -p /var/roothome
 
@@ -44,6 +46,10 @@ tee /usr/lib/sysusers.d/greeter.conf <<'EOF'
 g greeter 767
 u greeter 767 "Greetd greeter"
 EOF
+
+# Copies `grub` and `shim` EFI binaries to bootupd directory so that bootc-image-builder can work
+# FIXME: remove once https://github.com/osbuild/bootc-image-builder/issues/1171 is resolved
+cp -r /usr/lib/efi/*/*/* /usr/lib/bootupd/updates
 
 KERNEL_VERSION="$(find "/usr/lib/modules" -maxdepth 1 -type d ! -path "/usr/lib/modules" -exec basename '{}' ';' | sort | tail -n 1)"
 export DRACUT_NO_XATTR=1

@@ -1,5 +1,3 @@
-# Used on ISO building workflow
-
 [customizations.installer.kickstart]
 contents = """
 %post
