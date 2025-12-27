@@ -23,6 +23,10 @@ dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell-git
 
+dnf -y copr enable shadowblip/InputPlumber
+dnf -y copr disable shadowblip/InputPlumber
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:shadowblip:InputPlumber install inputplumber
+
 dnf -y copr enable avengemedia/dms-git
 dnf -y copr disable avengemedia/dms-git
 dnf -y \
