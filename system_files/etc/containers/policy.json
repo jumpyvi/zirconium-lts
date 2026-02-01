@@ -23,7 +23,10 @@
             "ghcr.io/zirconium-dev": [
                 {
                     "type": "sigstoreSigned",
-                    "keyPath": "/etc/pki/containers/zirconium.pub",
+                    "keyPaths": [
+                        "/usr/share/pki/containers/zirconium.pub",
+                        "/usr/share/pki/containers/jackrabbit.pub"
+                    ],
                     "signedIdentity": {
                         "type": "matchRepository"
                     }
