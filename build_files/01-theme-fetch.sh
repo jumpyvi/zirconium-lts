@@ -44,6 +44,7 @@ dnf -y install \
     gnome-disk-utility \
     gnome-keyring \
     gnome-keyring-pam \
+    gnupg2-scdaemon \
     greetd \
     greetd-selinux \
     hyfetch \
@@ -69,7 +70,8 @@ dnf -y install \
     xdg-desktop-portal-gtk \
     xdg-terminal-exec \
     xdg-user-dirs \
-    xwayland-satellite
+    xwayland-satellite \
+    ykman
 
 dnf install -y --setopt=install_weak_deps=False \
     kf6-kirigami \
