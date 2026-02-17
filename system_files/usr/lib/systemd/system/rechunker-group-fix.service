@@ -16,6 +16,7 @@
 Description=Fix groups for Legacy rechunker
 Wants=local-fs.target
 After=local-fs.target
+Before=systemd-user-sessions.service
 # Before=systemd-sysusers.service
 
 [Service]
