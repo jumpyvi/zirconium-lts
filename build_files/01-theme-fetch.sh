@@ -103,10 +103,9 @@ rm -rf "${XDG_EXT_TMPDIR}"
 
 # THIS IS SO ANNOYING
 # It just fails for whatever damn reason, other stuff is going to lock it if it actually fails
-yes | dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras,-mesa} || :
+yes | dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras} || :
 dnf config-manager setopt terra.enabled=0
 dnf config-manager setopt terra-extras.enabled=0
-dnf config-manager setopt terra-mesa.enabled=0
 dnf install -y --enablerepo=terra maple-fonts
 
 # These need to be here because having them on the layers breaks everything

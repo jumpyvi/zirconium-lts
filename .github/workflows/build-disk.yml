@@ -40,7 +40,6 @@ jobs:
           image: ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}${{ matrix.flavor }}:latest
           types: anaconda-iso
           rootfs: btrfs
-          additional-args: --use-librepo=True
 
       - name: Upload Artifact
         if: github.event_name == 'pull_request'
