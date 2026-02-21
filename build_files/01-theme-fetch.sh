@@ -94,6 +94,11 @@ dnf install -y --setopt=install_weak_deps=False \
     plasma-breeze \
     kf6-qqc2-desktop-style
 
+# DX
+dnf install -y \
+    nm-connection-editor \
+    vim
+
 # Codecs for video thumbnails on nautilus //TODO
 # dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
 # dnf config-manager setopt fedora-multimedia.enabled=0

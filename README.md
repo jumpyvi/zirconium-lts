@@ -35,12 +35,18 @@ No Nvdia
 
 ## Disclamers
 
+Differences from Fedora Zirconium
+- Foot swapped for Ptyxis
+- Vim added
+- nm-connection-editor added
+- Docker-ce & Qemu (Soon)
+
 Important missings:
-- Foot (replaced by Ptyxis)
 - Tailscale (Soon)
 - Udiskie
 - fcitx5
 - Video thumbnails in Nautilus
+- Input-Remapper
 
 This uses many custom repo to make CentOS usable
 - EPEL10
