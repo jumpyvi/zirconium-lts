@@ -13,25 +13,20 @@ Zirconium is built primarily for container-focused development and day-to-day us
 ## How do I use this?
 There is no ISO, rebase from Bluefin-LTS or another RHEL10-Like distro
 
-Alternatively, you can install Zirconium by doing a rebase from an existing Fedora Atomic install. We recommend [Bluefin](https://projectbluefin.io/), but it doesn't really matter.
+Alternatively, you can install Zirconium by doing a rebase from an existing Fedora Atomic install. We recommend [Bluefin-LTS](https://projectbluefin.io/), but it doesn't really matter.
 
-Once you have some flavour of Fedora Atomic installed, run this command:
-
-```
-sudo bootc switch ghcr.io/zirconium-dev/zirconium:latest
-```
-
-If you also have NVIDIA GPU (GTX 16xx or RTX series), run this command instead:
+Once you have some flavour of RHEL10 Atomic installed, run this command:
 
 ```
-sudo bootc switch ghcr.io/zirconium-dev/zirconium-nvidia:latest
+sudo bootc switch ghcr.io/jumpyvi/zirconium-lts:latest-amd64
 ```
+
 
 [Join our Discord](https://discord.gg/mmgNQpxwhW)!
 
 ## Notice about Nvidia GPUs
 
-No Nvdia
+No Nvidia support planned
 
 ## Disclamers
 
