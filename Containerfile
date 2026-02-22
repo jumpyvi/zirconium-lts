@@ -19,6 +19,8 @@ RUN curl -fsSLo /zram-generator.conf \
     "https://src.fedoraproject.org/rpms/zram-generator/raw/rawhide/f/zram-generator.conf"
 
 FROM quay.io/centos-bootc/centos-bootc:stream10
+
+
 ARG BUILD_FLAVOR="${BUILD_FLAVOR:-}"
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
@@ -30,8 +32,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build/00-base-pre.sh
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=tmpfs,dst=/var \
-    --mount=type=tmpfs,dst=/tmp \
     --mount=type=tmpfs,dst=/run \
     --mount=type=tmpfs,dst=/boot \
     --mount=type=cache,dst=/var/cache/libdnf5 \

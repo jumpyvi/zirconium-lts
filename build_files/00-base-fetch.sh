@@ -97,28 +97,4 @@ dnf -y install \
 
 dnf -y copr enable ublue-os/packages
 dnf -y copr disable ublue-os/packages
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages install uupd ublue-os-udev-rules
-
-if [ "$(rpm -E "%{fedora}")" == 43 ] ; then
-  dnf -y copr enable ublue-os/flatpak-test
-  dnf -y copr disable ublue-os/flatpak-test
-  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak flatpak
-  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-libs flatpak-libs
-  dnf -y --repo=copr:copr.fedorainfracloud.org:ublue-os:flatpak-test swap flatpak-session-helper flatpak-session-helper
-  rpm -q flatpak --qf "%{NAME} %{VENDOR}\n" | grep ublue-os
-fi
-
-# if [ "$(arch)" != "aarch64" ] ; then
-#   dnf install -y \
-#     virtualbox-guest-additions \
-#     thermald \
-#     powerstat
-# fi
-
-# THIS IS SO ANNOYING
-# It just fails for whatever damn reason, other stuff is going to lock it if it actually fails
-# yes | dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras,-mesa} || :
-# dnf config-manager setopt terra.enabled=0
-# dnf config-manager setopt terra-extras.enabled=0
-# dnf config-manager setopt terra-mesa.enabled=0
-
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages install uupd

@@ -2,13 +2,6 @@
 
 set -xeuo pipefail
 
-# dnf -y copr enable zirconium/packages
-# dnf -y copr disable zirconium/packages
-# dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
-#     matugen \
-#     iio-niri \
-#     valent-git
-
 dnf config-manager --set-enabled crb
 
 dnf -y copr enable yalter/niri-git
@@ -22,9 +15,10 @@ dnf -y copr disable ligenix/enterprise-cosmic
 
 dnf install -y greetd --repo=copr:copr.fedorainfracloud.org:ligenix:enterprise-cosmic
 
-# dnf -y config-manager setopt copr:copr.fedorainfracloud.org:yalter:niri-git.priority=1
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri-git install --setopt=install_weak_deps=False \
     niri
+niri --version | grep -i -E "niri [[:digit:]]*\.[[:digit:]]* (.*\.git\..*)"
+
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
@@ -125,14 +119,6 @@ XDG_EXT_TMPDIR="$(mktemp -d)"
 curl -fsSLo - "$(curl -fsSL https://api.github.com/repos/tulilirockz/xdg-terminal-exec-nautilus/releases/latest | jq -rc .tarball_url)" | tar -xzvf - -C "${XDG_EXT_TMPDIR}"
 install -Dpm0644 -t "/usr/share/nautilus-python/extensions/" "${XDG_EXT_TMPDIR}"/*/xdg-terminal-exec-nautilus.py
 rm -rf "${XDG_EXT_TMPDIR}"
-
-# THIS IS SO ANNOYING
-# It just fails for whatever damn reason, other stuff is going to lock it if it actually fails
-# yes | dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release{,-extras,-mesa} || :
-# dnf config-manager setopt terra.enabled=0
-# dnf config-manager setopt terra-extras.enabled=0
-# dnf config-manager setopt terra-mesa.enabled=0
-# dnf install -y --enablerepo=terra maple-fonts
 
 # These need to be here because having them on the layers breaks everything
 rm -rf /usr/share/doc/niri
