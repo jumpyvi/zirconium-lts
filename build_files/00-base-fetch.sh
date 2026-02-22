@@ -23,6 +23,7 @@ dnf -y install \
   cups \
   cups-pk-helper \
   dymo-cups-drivers \
+  gcr \
   firewalld \
   fprintd \
   fprintd-pam \
